@@ -17,6 +17,11 @@ public class NotAScript : MonoBehaviour
     private bool isGameOver;
 
     private Vector3 startPos;
+
+
+    [SerializeField] private Transform parent;
+    [SerializeField] private Transform grandParent;
+    
     
 
     private void Start()
@@ -46,6 +51,10 @@ public class NotAScript : MonoBehaviour
         time = 0;
         isGameOver = false;
         gameOverCanvas.gameObject.SetActive(false);
+
+        var vec = new Vector3(0, 0, 0);
+        parent.localRotation = Quaternion.Euler(vec);
+        grandParent.rotation = Quaternion.Euler(vec);
     }
 
     private IEnumerator Timer()
